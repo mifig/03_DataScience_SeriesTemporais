@@ -288,3 +288,9 @@ def get_variable_types(df):
                 else:
                     variable_types['numeric'].append(c)
     return variable_types
+
+def plot_overfitting_study(xvalues, prd_trn, prd_tst, name, xlabel, ylabel, pct=True):
+    evals = {'Train': prd_trn, 'Test': prd_tst}
+    plt.figure()
+    multiple_line_chart(xvalues, evals, ax = None, title=f'Overfitting {name}', xlabel=xlabel, ylabel=ylabel, percentage=pct)
+    plt.savefig('../03_images/overfitting_{name}.png')
